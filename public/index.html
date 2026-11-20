@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aldo Mogol | Web Developer & Software Engineer</title>
+    <meta name="description" content="Website pribadi profesional Aldo Mogol - Full-Stack Web Developer dengan integrasi CSS modern, JavaScript interaktif, dan basis data SQLite.">
+    <!-- Favicon SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#hero" class="brand-logo">
+                <span class="brand-bracket">&lt;</span>
+                <span class="brand-text">AldoMogol</span>
+                <span class="brand-slash">/</span>
+                <span class="brand-bracket">&gt;</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="nav-links" id="navLinks">
+                <a href="#hero" class="nav-item active">Beranda</a>
+                <a href="#about" class="nav-item">Tentang</a>
+                <a href="#skills" class="nav-item">Keahlian</a>
+                <a href="#projects" class="nav-item">Proyek</a>
+                <a href="#experience" class="nav-item">Pengalaman</a>
+                <a href="#guestbook" class="nav-item">Buku Tamu</a>
+                <a href="#contact" class="nav-item">Kontak</a>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Status Koneksi Database -->
+                <div class="db-badge" id="dbStatusBadge" title="Status koneksi ke server dan database SQLite">
+                    <span class="pulse-dot"></span>
+                    <span id="dbStatusText">Menghubungkan DB...</span>
+                </div>
+
+                <!-- Theme Toggle Button -->
+                <button class="icon-btn theme-toggle" id="themeToggle" title="Ganti Mode Gelap/Terang" aria-label="Toggle Theme">
+                    <span class="theme-icon" id="themeIcon">🌙</span>
+                </button>
+
+                <!-- Admin CMS Button -->
+                <button class="btn btn-sm btn-outline-cyan" id="openAdminBtn" title="Buka Panel Kelola Database & Pesan">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                    <span>Admin DB</span>
+                </button>
+
+                <!-- Mobile Menu Toggle Button -->
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Menu Navigasi">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+        <a href="#hero" class="mobile-nav-item">Beranda</a>
+        <a href="#about" class="mobile-nav-item">Tentang</a>
+        <a href="#skills" class="mobile-nav-item">Keahlian</a>
+        <a href="#projects" class="mobile-nav-item">Proyek</a>
+        <a href="#experience" class="mobile-nav-item">Pengalaman</a>
+        <a href="#guestbook" class="mobile-nav-item">Buku Tamu</a>
+        <a href="#contact" class="mobile-nav-item">Kontak</a>
+    </div>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero-section" id="hero">
+        <div class="hero-bg-blobs">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+        </div>
+
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="status-pill animate-fade-in">
+                    <span class="status-ping"></span>
+                    <span id="heroAvailability">Tersedia untuk Proyek & Kerja Sama</span>
+                </div>
+
+                <h1 class="hero-greeting animate-slide-up">
+                    Halo, Saya <span class="text-gradient" id="heroName">Aldo Mogol</span>
+                </h1>
+
+                <h2 class="hero-subtitle animate-slide-up-delay-1">
+                    Saya seorang <span class="typing-text" id="typingElement"></span><span class="cursor-blink">|</span>
+                </h2>
+
+                <p class="hero-description animate-slide-up-delay-2" id="heroTagline">
+                    Membangun website modern, interaktif, responsif, dan didukung oleh arsitektur basis data relasional yang handal dan teruji.
+                </p>
+
+                <div class="hero-cta-group animate-slide-up-delay-3">
+                    <a href="#projects" class="btn btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                        Lihat Portofolio
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        Kirim Pesan
+                    </a>
+                    <button class="btn btn-ghost" id="heroAdminBtn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                        Kelola Database
+                    </button>
+                </div>
+
+                <!-- Quick Tech Badges -->
+                <div class="hero-tech-stack">
+                    <span class="tech-label">Tech Stack:</span>
+                    <span class="badge badge-tech">HTML5</span>
+                    <span class="badge badge-tech">CSS3 Grid/Flex</span>
+                    <span class="badge badge-tech">JavaScript ES6+</span>
+                    <span class="badge badge-tech">SQLite3 Database</span>
+                    <span class="badge badge-tech">RESTful API</span>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="avatar-card-wrapper animate-float">
+                    <div class="avatar-card">
+                        <div class="avatar-halo"></div>
+                        <div class="avatar-glow"></div>
+                        <div class="avatar-inner">
+                            <div class="code-avatar-symbol">
+                                <span class="av-code">&lt;AM/&gt;</span>
+                            </div>
+                        </div>
+
+                        <!-- Floating Badges Around Avatar -->
+                        <div class="floating-badge badge-top-right">
+                            <span class="f-icon">💾</span>
+                            <span>SQLite Database</span>
+                        </div>
+                        <div class="floating-badge badge-bottom-left">
+                            <span class="f-icon">🎨</span>
+                            <span>CSS3 Modern UI</span>
+                        </div>
+                        <div class="floating-badge badge-bottom-right">
+                            <span class="f-icon">⚡</span>
+                            <span>JavaScript ES6+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <a href="#about" class="scroll-indicator" aria-label="Gulir ke bawah">
+            <span class="mouse">
+                <span class="wheel"></span>
+            </span>
+        </a>
+    </section>
+
+    <!-- ================= TENTANG SAYA (ABOUT) ================= -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Tentang Pengembang</span>
+                <h2 class="section-title">Profil & Latar Belakang</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card glass-panel">
+                    <h3 class="about-subheading">Siapa Saya?</h3>
+                    <p class="about-bio" id="aboutBioText">
+                        Memuat ringkasan profil dari basis data SQLite...
+                    </p>
+
+                    <div class="info-badges-grid">
+                        <div class="info-badge">
+                            <span class="info-title">📍 Lokasi:</span>
+                            <span class="info-val" id="aboutLocation">Indonesia</span>
+                        </div>
+                        <div class="info-badge">
+                            <span class="info-title">✉️ Email:</span>
+                            <span class="info-val" id="aboutEmail">aldomogol@example.com</span>
+                        </div>
+                        <div class="info-badge">
+                            <span class="info-title">📱 Telepon / WA:</span>
+                            <span class="info-val" id="aboutPhone">+62 812-3456-7890</span>
+                        </div>
+                        <div class="info-badge">
+                            <span class="info-title">💼 Status:</span>
+                            <span class="info-val text-success" id="aboutWorkStatus">Tersedia untuk Proyek</span>
+                        </div>
+                    </div>
+
+                    <div class="about-actions">
+                        <button class="btn btn-outline" id="printCvBtn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Cetak / Unduh Profil (CV)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stats Cards Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card glass-panel">
+                        <div class="stat-icon">💻</div>
+                        <div class="stat-number" id="statProjects">4+</div>
+                        <div class="stat-label">Proyek Selesai</div>
+                        <div class="stat-sub">Tersimpan di SQLite</div>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-number" id="statSkills">12+</div>
+                        <div class="stat-label">Keahlian Teknis</div>
+                        <div class="stat-sub">Frontend, Backend & DB</div>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <div class="stat-icon">📬</div>
+                        <div class="stat-number" id="statMessages">0</div>
+                        <div class="stat-label">Pesan Masuk</div>
+                        <div class="stat-sub">Di buku tamu database</div>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Komitmen Kualitas</div>
+                        <div class="stat-sub">Kode Bersih & Modern</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= KEAHLIAN (SKILLS) ================= -->
+    <section class="section skills-section" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Kompetensi Teknis</span>
+                <h2 class="section-title">Keahlian & Teknologi</h2>
+                <p class="section-desc">Kombinasi teknologi frontend modern, sistem backend, dan arsitektur database relasional.</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Skill Filter Buttons -->
+            <div class="filter-tabs" id="skillFilterTabs">
+                <button class="filter-btn active" data-category="all">Semua Keahlian</button>
+                <button class="filter-btn" data-category="Frontend">Frontend</button>
+                <button class="filter-btn" data-category="Backend">Backend</button>
+                <button class="filter-btn" data-category="Database">Database</button>
+                <button class="filter-btn" data-category="Tools">Tools</button>
+            </div>
+
+            <!-- Skills Cards Container -->
+            <div class="skills-grid" id="skillsContainer">
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Memuat data keahlian dari SQLite database...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= PORTOFOLIO PROYEK ================= -->
+    <section class="section projects-section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Hasil Karya</span>
+                <h2 class="section-title">Portofolio Proyek</h2>
+                <p class="section-desc">Koleksi proyek nyata yang dikembangkan dengan integrasi antarmuka interaktif dan database.</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Project Filters -->
+            <div class="filter-tabs" id="projectFilterTabs">
+                <button class="filter-btn active" data-filter="all">Semua Proyek</button>
+                <button class="filter-btn" data-filter="Web App">Web App</button>
+                <button class="filter-btn" data-filter="Tools">Tools</button>
+                <button class="filter-btn" data-filter="IoT / Tools">IoT & Sistem</button>
+            </div>
+
+            <!-- Project Cards Container -->
+            <div class="projects-grid" id="projectsContainer">
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Memuat portofolio proyek dari database SQLite...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= PENGALAMAN & PENDIDIKAN ================= -->
+    <section class="section experience-section" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Perjalanan Karir</span>
+                <h2 class="section-title">Pengalaman & Pendidikan</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="timeline-wrapper">
+                <div class="timeline" id="experienceTimeline">
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Memuat riwayat dari database...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= BUKU TAMU (GUESTBOOK) ================= -->
+    <section class="section guestbook-section" id="guestbook">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Interaksi Komunitas</span>
+                <h2 class="section-title">Buku Tamu & Pesan Pengunjung</h2>
+                <p class="section-desc">Pesan dan testimonial yang tersimpan langsung di dalam basis data SQLite secara real-time.</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="guestbook-container">
+                <div class="guestbook-messages-list" id="guestbookList">
+                    <div class="loading-state">
+                        <div class="spinner"></div>
+                        <p>Memuat pesan buku tamu dari database...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FORM KONTAK ================= -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Mari Terhubung</span>
+                <h2 class="section-title">Kirim Pesan ke Database</h2>
+                <p class="section-desc">Pesan Anda akan otomatis diproses melalui REST API dan disimpan ke dalam tabel SQLite database.</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info-card glass-panel">
+                    <h3>Hubungi Langsung</h3>
+                    <p>Apakah Anda memiliki proyek yang ingin dikembangkan, ingin berdiskusi seputar website & database, atau sekadar menyapa? Jangan ragu mengirimkan pesan!</p>
+
+                    <div class="contact-details">
+                        <div class="c-item">
+                            <span class="c-icon">📧</span>
+                            <div>
+                                <strong>Email:</strong>
+                                <p id="contactCardEmail">aldomogol@example.com</p>
+                            </div>
+                        </div>
+                        <div class="c-item">
+                            <span class="c-icon">📍</span>
+                            <div>
+                                <strong>Domisili:</strong>
+                                <p id="contactCardLocation">Indonesia</p>
+                            </div>
+                        </div>
+                        <div class="c-item">
+                            <span class="c-icon">💾</span>
+                            <div>
+                                <strong>Sistem Backend:</strong>
+                                <p>Python Server + SQLite3 + REST API</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-card glass-panel">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="senderName">Nama Lengkap *</label>
+                                <input type="text" id="senderName" name="name" required placeholder="Contoh: Budi Pratama" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="senderEmail">Alamat Email *</label>
+                                <input type="email" id="senderEmail" name="email" required placeholder="contoh@domain.com" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="senderSubject">Subjek / Topik</label>
+                            <input type="text" id="senderSubject" name="subject" placeholder="Diskusi Proyek Web / Tanya Jawab" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="senderMessage">Isi Pesan *</label>
+                            <textarea id="senderMessage" name="message" rows="5" required placeholder="Tuliskan pesan Anda di sini..." class="form-control"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block" id="submitContactBtn">
+                            <span id="btnSubmitText">Kirim Pesan ke Database</span>
+                            <span class="btn-spinner" id="btnSubmitSpinner" style="display: none;"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <span class="brand-logo">&lt;AldoMogol /&gt;</span>
+                <p>Website Pribadi dengan HTML5, CSS3, JavaScript, dan SQLite Database.</p>
+            </div>
+            <div class="footer-tech">
+                <p>Status Basis Data: <strong id="footerDbStatus" class="text-success">Terkoneksi (SQLite)</strong></p>
+                <p class="copyright">&copy; 2026 Aldo Mogol. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= MODAL ADMIN / CMS DATABASE ================= -->
+    <div class="modal-backdrop" id="adminModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <span class="modal-icon">⚙️</span>
+                    <h3>Panel Manajemen Database & Admin</h3>
+                </div>
+                <button class="modal-close-btn" id="closeAdminBtn" aria-label="Tutup Dialog">&times;</button>
+            </div>
+
+            <!-- PIN Auth Box (jika belum unlock) -->
+            <div class="admin-auth-box" id="adminPinBox">
+                <p>Masukkan PIN Keamanan untuk mengelola database (PIN Bawaan: <strong>1234</strong>):</p>
+                <div class="pin-input-group">
+                    <input type="password" id="adminPinInput" placeholder="Masukkan PIN" class="form-control" maxlength="10">
+                    <button class="btn btn-primary" id="verifyPinBtn">Masuk Panel</button>
+                </div>
+                <small class="text-muted">PIN default adalah 1234 (dapat diakses langsung)</small>
+            </div>
+
+            <!-- Admin Tabs Content (jika terverifikasi) -->
+            <div class="admin-panel-body" id="adminPanelContent" style="display: none;">
+                <div class="admin-tabs">
+                    <button class="admin-tab-btn active" data-tab="inboxTab">📬 Pesan Masuk (<span id="adminMsgCount">0</span>)</button>
+                    <button class="admin-tab-btn" data-tab="addProjectTab">➕ Tambah Proyek</button>
+                    <button class="admin-tab-btn" data-tab="addSkillTab">⭐ Tambah Skill</button>
+                    <button class="admin-tab-btn" data-tab="editProfileTab">👤 Edit Profil</button>
+                </div>
+
+                <!-- Tab 1: Pesan Masuk -->
+                <div class="admin-tab-content active" id="inboxTab">
+                    <div class="tab-header-actions">
+                        <h4>Daftar Pesan Kontak di Database SQLite</h4>
+                        <button class="btn btn-sm btn-outline" id="refreshMessagesBtn">Segarkan Data</button>
+                    </div>
+                    <div class="admin-messages-list" id="adminMessagesContainer">
+                        <!-- Diisi via JS -->
+                    </div>
+                </div>
+
+                <!-- Tab 2: Tambah Proyek -->
+                <div class="admin-tab-content" id="addProjectTab">
+                    <h4>Tambah Portofolio Proyek Baru ke Database</h4>
+                    <form id="addProjectForm" class="admin-form">
+                        <div class="form-group">
+                            <label>Judul Proyek *</label>
+                            <input type="text" id="projTitle" required placeholder="Contoh: E-Commerce Web App" class="form-control">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Kategori</label>
+                                <select id="projCategory" class="form-control">
+                                    <option value="Web App">Web App</option>
+                                    <option value="Tools">Tools</option>
+                                    <option value="IoT / Tools">IoT & Sistem</option>
+                                    <option value="Mobile">Mobile Web</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Tags Teknologi (pisahkan koma)</label>
+                                <input type="text" id="projTags" placeholder="HTML, CSS, JS, SQLite" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Deskripsi Proyek *</label>
+                            <textarea id="projDesc" rows="3" required placeholder="Jelaskan fitur dan fungsionalitas proyek..." class="form-control"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>URL Demo / Live</label>
+                                <input type="text" id="projDemoUrl" placeholder="https://..." value="#" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>URL Repositori GitHub</label>
+                                <input type="text" id="projGithubUrl" placeholder="https://github.com/..." value="#" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="projFeatured" checked> Tampilkan sebagai Proyek Unggulan (Featured)
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Simpan Proyek ke Database</button>
+                    </form>
+                </div>
+
+                <!-- Tab 3: Tambah Skill -->
+                <div class="admin-tab-content" id="addSkillTab">
+                    <h4>Tambah Keahlian Baru ke Database</h4>
+                    <form id="addSkillForm" class="admin-form">
+                        <div class="form-group">
+                            <label>Nama Keahlian / Bahasa *</label>
+                            <input type="text" id="skillName" required placeholder="Contoh: PostgreSQL, Vue.js, Tailwind CSS" class="form-control">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Kategori</label>
+                                <select id="skillCategory" class="form-control">
+                                    <option value="Frontend">Frontend</option>
+                                    <option value="Backend">Backend</option>
+                                    <option value="Database">Database</option>
+                                    <option value="Tools">Tools</option>
+                                    <option value="Design">Design</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Tingkat Kemahiran (1 - 100%)</label>
+                                <input type="number" id="skillLevel" min="10" max="100" value="85" class="form-control">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Simpan Skill ke Database</button>
+                    </form>
+                </div>
+
+                <!-- Tab 4: Edit Profil -->
+                <div class="admin-tab-content" id="editProfileTab">
+                    <h4>Perbarui Informasi Profil Pribadi</h4>
+                    <form id="editProfileForm" class="admin-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nama Lengkap</label>
+                                <input type="text" id="profName" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Jabatan / Title</label>
+                                <input type="text" id="profTitle" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Tagline Singkat</label>
+                            <input type="text" id="profTagline" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Bio Lengkap</label>
+                            <textarea id="profBio" rows="4" class="form-control"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email Kontak</label>
+                                <input type="email" id="profEmail" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Nomor Telepon / WhatsApp</label>
+                                <input type="text" id="profPhone" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Lokasi Domisili</label>
+                            <input type="text" id="profLocation" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan Profil ke Database</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= DETAIL MODAL PROYEK ================= -->
+    <div class="modal-backdrop" id="projectDetailModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 id="modalProjTitle">Judul Proyek</h3>
+                <button class="modal-close-btn" id="closeProjModalBtn" aria-label="Tutup">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="project-modal-banner" id="modalProjBanner">
+                    <span class="project-modal-icon">🚀</span>
+                </div>
+                <div class="project-modal-info">
+                    <span class="badge badge-category" id="modalProjCategory">Web App</span>
+                    <p id="modalProjDescription">Deskripsi proyek...</p>
+                    <div class="modal-tags" id="modalProjTags"></div>
+                    <div class="modal-project-links">
+                        <a href="#" id="modalProjLiveLink" target="_blank" class="btn btn-primary btn-sm">Lihat Demo Live</a>
+                        <a href="#" id="modalProjRepoLink" target="_blank" class="btn btn-outline btn-sm">Lihat Kode di GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+
